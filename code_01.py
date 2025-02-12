@@ -29,9 +29,32 @@ def isPalindrome(input: str) -> bool:
 
 
 # This function sorts the input list in ascending order
+# I just did it for integers for the sake of this problem
 def sortArray(input: typing.List[int]) -> typing.List[int]:
+    # I am using the Bubble Sort algorithm for this problem
+    
+    # Iterate over the list and compare each element with the next one  
+    for i in range(len(input)):
+        for j in range(len(input)-1):
+            # If the current element is greater than the next one, swap them
+            if input[j] > input[j+1]:
+                input[j], input[j+1] = input[j+1], input[j]
     return input
 
 if __name__ == "__main__":
-    print(reverseString("Hello World"))
-    print(isPalindrome("baaaab"))
+
+    string:str = input("Enter a string: ")
+    print("Reversed String" , reverseString(string))
+    print("Is Palindrome?: ", isPalindrome(string))
+
+    # Get the array of integers from the user
+    array_input = input("Enter a list of integers separated by spaces: ")
+    try:
+        array = list(map(int, array_input.split()))
+        print("Sorted Array:", sortArray(array))
+    except ValueError:
+        print("Invalid input. Please enter a list of integers separated by spaces.")
+
+    # print(reverseString("Hello World"))
+    # print(isPalindrome("baaaab"))
+    # print(sortArray([1, 5, 2, 4, 5, 0, -1]))
