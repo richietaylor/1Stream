@@ -14,6 +14,9 @@ def reverseString(input: str) -> str:
 # This function returns true if the input string is a palindrome, false otherwise
 def isPalindrome(input: str) -> bool:
     # I am using basic Recursion for this problem because I miss Uni :(
+    # Could I have just compared the input string with its reverse?
+    # Yes, but where is the fun in that?
+
     # This assumes that an original String of length 0 is a palindrome,
     # but this makes sense to me (You can read an empty string both ways)
 
@@ -26,7 +29,6 @@ def isPalindrome(input: str) -> bool:
     # Recursively check the rest of the string
     else:
         return isPalindrome(input[1:-1])
-
 
 # This function sorts the input list in ascending order
 # I just did it for integers for the sake of this problem
@@ -50,9 +52,11 @@ if __name__ == "__main__":
     # Get the array of integers from the user
     array_input = input("Enter a list of integers separated by spaces: ")
     try:
+        # Convert the input string to a list of integers
         array = list(map(int, array_input.split()))
         print("Sorted Array:", sortArray(array))
     except ValueError:
+        # Check for input errors
         print("Invalid input. Please enter a list of integers separated by spaces.")
 
     # print(reverseString("Hello World"))
